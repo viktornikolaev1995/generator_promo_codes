@@ -19,7 +19,7 @@ def check_if_promo_code_is_exists(file: str = 'promo_codes.json', promo_code: st
             for group, promo_codes_data in promo_codes_dict.items():
                 if promo_code in promo_codes_data['promo_codes']:  # there are several codes, need to change
                     res = f'код существует группа = {{{group}}}'
-            print('код не существует') if not res else print(f'код существует группа = {{{group}}}')
+            print('код не существует') if not res else print(res)
             return
     else:
         print('jsonfile не существует')

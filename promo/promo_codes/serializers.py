@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import serializers
 from .models import Group, PromoCode
 
@@ -35,3 +34,8 @@ class GroupListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
         fields = ['id', 'name', 'amount', 'promo_codes']
+
+
+class GroupPartialUpdateSerializer(GroupCreateSerializer):
+    """Group Partial Update Serializer"""
+    pass

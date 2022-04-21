@@ -80,5 +80,5 @@ python generating_promo_codes\test_generator_promo_codes.py
 
 Для проверки на существование промо-кода в json файле выполните команду:
 ```bash
-python test_existence_promo_code.py
+python generating_promo_codes\test_existence_promo_code.py
 ```

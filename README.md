@@ -22,10 +22,6 @@ docker-compose up --build
 
 При первом запуске данный процесс может занять несколько минут.
 
-```bash
-docker-compose exec app python manage.py createsuperuser
-```
-
 К API есть документация по адресу http://127.0.0.1:8000/redoc/, http://127.0.0.1:8000/swagger/
 
 ### Для просмотра запущенных контейнеров

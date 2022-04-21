@@ -62,23 +62,23 @@ docker-compose stop
 docker-compose down
 ```
 
-***Нижеследующие команды выполняются при запущенных контейнерах и в той же директории, где запускались контейнеры***
+***Нижеследующие команды выполняются при запущенных контейнерах***
 
 Для генерации промо-кодов выполните команду, в которой после флага -a укажите количество промо-кодов, после флага -g - наименование группы:
 ```bash
-python generating_promo_codes\generator_promo_codes.py -a 10 -g агенства
+python generator_promo_codes.py -a 10 -g агенства
 ```
 Для проверке существования промо-кода в созданном json файле выполните команду, в которой после флага -pc укажите промо-код:
 ```bash
-python generating_promo_codes\existence_promo_code.py -pc af51e4bc-4d25-4ef0-92ba-37861bc22371
+python existence_promo_code.py -pc af51e4bc-4d25-4ef0-92ba-37861bc22371
 ```
 
 Для проверки генерации промо-кодов выполните команду:
 ```bash
-python generating_promo_codes\test_generator_promo_codes.py
+python test_generator_promo_codes.py
 ```
 
 Для проверки на существование промо-кода в json файле выполните команду:
 ```bash
-python generating_promo_codes\test_existence_promo_code.py
+python test_existence_promo_code.py
 ```

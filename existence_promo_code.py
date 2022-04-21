@@ -11,9 +11,9 @@ promo_code_from_command_line = args.promo_code
 path = Path(__file__).resolve().parent
 
 
-def check_if_promo_code_is_exists(promo_code: str = promo_code_from_command_line):
-    if 'promo_codes.json' in os.listdir(path=path):
-        with open('promo_codes.json', 'r') as jsonfile:
+def check_if_promo_code_is_exists(file: str = 'promo_codes.json', promo_code: str = promo_code_from_command_line):
+    if file in os.listdir(path=path):
+        with open(file, 'r') as jsonfile:
             promo_codes_dict = json.load(jsonfile)
             res = None
             for group, promo_codes_data in promo_codes_dict.items():

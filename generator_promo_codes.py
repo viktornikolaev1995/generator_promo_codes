@@ -32,9 +32,10 @@ def gen_promo_codes(name, amount, partial_update: bool = False):
     return res_group, res_promo_codes
 
 
-def inserting_data_in_jsonfile(group_name: str = group_from_command_line, amount: str = amount_from_command_line):
-    if 'promo_codes.json' not in os.listdir(path=path):
-        with open('promo_codes.json', 'w') as jsonfile:
+def inserting_data_in_jsonfile(file: str = 'promo_codes.json', group_name: str = group_from_command_line,
+                               amount: str = amount_from_command_line):
+    if file not in os.listdir(path=path):
+        with open(file, 'w') as jsonfile:
             res = gen_promo_codes(name=group_name, amount=amount)
             group, promo_codes = res
             promo_codes_data = {
@@ -42,17 +43,18 @@ def inserting_data_in_jsonfile(group_name: str = group_from_command_line, amount
                     'promo_codes': promo_codes
                 }
             }
-            json.dump(promo_codes_data, jsonfile)
+            json.dump(promo_codes_data, jsonfile, ensure_ascii=False)
         print(promo_codes_data)
     else:
         data_from_jsonfile = None
-        with open('promo_codes.json', 'r') as jsonfile:
+        with open(file, 'r') as jsonfile:
             try:
                 data_from_jsonfile = json.load(jsonfile)
+                print(data_from_jsonfile)
             except JSONDecodeError:
                 pass
 
-        with open('promo_codes.json', 'w') as jsonfile:
+        with open(file, 'w') as jsonfile:
             if group_name in data_from_jsonfile.keys():
                 res = gen_promo_codes(name=group_name, amount=amount, partial_update=True)
                 group, promo_codes = res
@@ -61,7 +63,7 @@ def inserting_data_in_jsonfile(group_name: str = group_from_command_line, amount
                 res = gen_promo_codes(name=group_name, amount=amount)
                 group, promo_codes = res
                 data_from_jsonfile[group] = {'promo_codes': promo_codes}
-            json.dump(data_from_jsonfile, jsonfile)
+            json.dump(data_from_jsonfile, jsonfile, ensure_ascii=False)
         print(data_from_jsonfile)
 
 

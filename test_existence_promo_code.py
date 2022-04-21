@@ -25,6 +25,7 @@ class TestExistencePromoCode(TestCase):
         self.assertEqual('код существует группа' in res, True)
 
     def test_not_existence_promo_code(self):
+        file='promo_codes_test.json'
         promo_code = '5efb1613-de39-4d68-99eb-3f7c5d06ce078'
         res = check_if_promo_code_is_exists(file=file, promo_code=promo_code)
         self.assertEqual('код не существует' == res, True)
